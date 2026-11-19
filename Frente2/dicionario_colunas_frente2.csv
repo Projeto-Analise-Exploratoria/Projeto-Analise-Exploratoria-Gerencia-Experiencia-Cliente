@@ -1,0 +1,37 @@
+﻿Coluna,Tipo,Origem,Descrição,Tratamento aplicado
+id_pedido,texto,pedidos,Identificador do pedido,mantido
+nota_avaliacao,inteiro,avaliações,Nota dada pelo cliente de 1 a 5,mantida
+grupo_nota,texto,nota_avaliacao,"Classificação da avaliação: baixa, intermediária ou alta",criada com base na nota
+nota_baixa,inteiro,nota_avaliacao,Indica nota 1 ou 2,criada com base na nota
+mes_compra,texto,marca_temporal_compra_pedido,Mês em que a compra foi feita,extraído da data
+estado_cliente,texto,clientes,Estado do cliente,mantido
+categoria_produto,texto,itens e produtos,Categoria do item de maior preço no pedido,selecionada por pedido
+status_pedido,texto,pedidos,Situação do pedido,mantido
+situacao_entrega,texto,desvio_prazo_dias,"Entrega antecipada, no prazo, atrasada ou sem data",classificada pelo prazo
+valor_produtos,decimal,preco / itens,Soma do preço dos produtos do pedido,soma por pedido
+valor_frete,decimal,valor_frete / itens,Soma do frete cobrado pelos itens,soma por pedido
+valor_total_pedido,decimal,valor_produtos + valor_frete,Valor de produtos e frete,soma
+proporcao_frete,decimal,valor_frete / valor_produtos,Relação entre frete e preço dos produtos,divisão
+qtd_itens,inteiro,itens,Quantidade de itens no pedido,contagem por pedido
+tempo_entrega_dias,decimal,data_entrega_pedido_cliente - marca_temporal_compra_pedido,Dias entre compra e entrega,diferença de datas
+tempo_ate_transportadora_dias,decimal,data_entrega_pedido_transporadora - marca_temporal_compra_pedido,Dias até a transportadora receber,diferença de datas
+tempo_transporte_dias,decimal,data_entrega_pedido_cliente - data_entrega_pedido_transporadora,Dias entre transportadora e cliente,diferença de datas
+desvio_prazo_dias,decimal,data_entrega_pedido_cliente - data_estimada_entrega_pedido,Dias de diferença para a data prevista; negativos indicam antecipação,diferença entre datas sem horário
+dias_atraso,decimal,desvio_prazo_dias,Dias de atraso; zero quando entregue no prazo ou antes,valores negativos limitados a zero
+atrasou_entrega,inteiro ou nulo,desvio_prazo_dias,"1 para entrega atrasada, 0 para não atrasada, vazio sem data",indicador binário
+tem_comentario,inteiro,mensagem_comentario_avaliacao,1 se o cliente escreveu comentário,indicador binário
+tamanho_comentario,inteiro,mensagem_comentario_avaliacao,Número de caracteres do comentário,contagem de caracteres
+marca_temporal_compra_pedido,data e hora,pedidos,Data e horário da compra,convertida para data
+data_entrega_pedido_cliente,data e hora,pedidos,Data e horário da entrega,convertida para data
+data_estimada_entrega_pedido,data e hora,pedidos,Data prevista para entrega,convertida para data
+valor_produtos_minmax,decimal,valor_produtos,valor_produtos na escala minmax,normalização minmax
+valor_produtos_zscore,decimal,valor_produtos,valor_produtos na escala zscore,normalização zscore
+valor_frete_minmax,decimal,valor_frete,valor_frete na escala minmax,normalização minmax
+valor_frete_zscore,decimal,valor_frete,valor_frete na escala zscore,normalização zscore
+tempo_entrega_dias_minmax,decimal,tempo_entrega_dias,tempo_entrega_dias na escala minmax,normalização minmax
+tempo_entrega_dias_zscore,decimal,tempo_entrega_dias,tempo_entrega_dias na escala zscore,normalização zscore
+qtd_vendedores,inteiro,itens,Quantidade de vendedores envolvidos no pedido,contagem distinta por pedido
+entrega_antes_do_prazo,inteiro,situacao_entrega,"1 se a entrega está em antes_do_prazo, 0 caso contrário",codificação one-hot
+entrega_atrasada,inteiro,situacao_entrega,"1 se a entrega está em atrasada, 0 caso contrário",codificação one-hot
+entrega_no_prazo,inteiro,situacao_entrega,"1 se a entrega está em no_prazo, 0 caso contrário",codificação one-hot
+entrega_sem_data,inteiro,situacao_entrega,"1 se a entrega está em sem_data, 0 caso contrário",codificação one-hot
