@@ -14,11 +14,11 @@
 
 ## 📌 Sobre o projeto
 
-Trabalho da disciplina de Ciência de Dados utilizando a base da Olist, com foco na Gerência de Experiência do Cliente.
+O presente projeto, desenvolvido na disciplina de Ciência de Dados, utiliza o conjunto de dados da Olist, uma plataforma brasileira de comércio eletrônico, tendo como foco a Gerência de Experiência do Cliente.
 
-O objetivo é analisar as avaliações dos clientes, identificar os fatores relacionados às notas baixas, verificar a influência dos atrasos nas entregas e entender quais problemas merecem mais atenção.
+O objetivo é investigar os fatores relacionados às avaliações negativas dos consumidores, comparando pedidos avaliados com notas 1 e 2 àqueles que receberam nota 5. Busca-se também analisar a relação entre os atrasos nas entregas e as avaliações dos clientes, além de identificar os principais problemas que podem afetar a experiência de compra.
 
-O projeto envolve limpeza, tratamento e transformação dos dados, análise exploratória e apresentação dos resultados em um painel no Streamlit.
+Para isso, o projeto contempla etapas de limpeza, tratamento e transformação dos dados, seguidas de uma análise exploratória. Os resultados serão apresentados por meio de um painel interativo desenvolvido em Streamlit, permitindo uma visualização mais clara das informações e contribuindo para a tomada de decisões.
 
 ## 🛠️ Etapas desenvolvidas
 
@@ -54,7 +54,7 @@ __________________________
 - `Frente4/` — Painel em Streamlit.
 - `base_de_dados_originais/` — Bases originais da Olist.
 - `dicionario_de_dados.pdf` — Dicionário de dados.
-- `diario_de_decisoes.pdf` — Diário de decisões.
+- `relatorio_final.pdf` — Relatório Final em formato PDF 
 - `uso_de_ia.md` — Registro do uso de IA.
 - `README.md` — Informações do projeto.
 
