@@ -1,9 +1,9 @@
 
 # 📊 Análise Exploratória de Dados — Olist
 
-** Disciplina:** Ciência de Dados
+**Disciplina:** Ciência de Dados
 
-** Professora:** Heloisa Guimarães
+**Professora:** Heloisa Guimarães
 
 ## 👥 Integrantes
 
