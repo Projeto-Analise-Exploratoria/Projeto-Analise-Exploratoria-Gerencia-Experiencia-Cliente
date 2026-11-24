@@ -1,4 +1,4 @@
-# Registro de uso de IA — Frente 2
+## Registro de uso de IA — Frente 2
 
 | Nº | Data | Integrante | Ferramenta | Etapa e o que foi pedido | O que foi aproveitado | O que a equipe alterou ou verificou | Link da conversa |
 |---|---|---|---|---|---|---|---|
