@@ -7,10 +7,10 @@
 
 ## 👥 Integrantes
 
-1. Alisson — Frente 1
+1. Alisson Araújo — Frente 1
 2. Ronald Guimarães — Frente 2
 3. Giovane Ferreira — Frente 3
-4. Artur — Frente 4
+4. Artur Oliveira — Frente 4
 
 ## 📌 Sobre o projeto
 
