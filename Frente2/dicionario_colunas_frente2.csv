@@ -1,0 +1,37 @@
+﻿Coluna,Tipo,Origem,Descrição,Tratamento aplicado
+id_pedido,texto,Dataframe_Unido.csv: id_pedido,Identificador do pedido,Mantido; uma linha por pedido com avaliação válida.
+nota_avaliacao,inteiro,Dataframe_Unido.csv: nota_avaliacao,Nota dada pelo cliente de 1 a 5,Mantida de 1 a 5; pedidos sem nota ficam fora da tabela analítica.
+grupo_nota,texto,nota_avaliacao,"Classificação da avaliação: baixa, intermediária ou alta","Baixa (1-2), alta (5), intermediária (3-4)."
+nota_baixa,inteiro,nota_avaliacao,Indica nota 1 ou 2,Indicador 1 para notas 1-2; 0 para as demais.
+mes_compra,texto,marca_temporal_compra_pedido,Mês em que a compra foi feita,Mês extraído da data original da compra.
+estado_cliente,texto,Dataframe_Unido.csv: estado_cliente,Estado do cliente,Mantido da tabela unificada da Frente 1.
+categoria_produto,texto,"id_pedido, id_item_pedido, preco, nome_categoria_produto",Categoria do item de maior preço no pedido,Itens repetidos por avaliação são deduplicados; categoria do item de maior preço por pedido.
+status_pedido,texto,Dataframe_Unido.csv: status_pedido,Situação do pedido,Mantido da tabela unificada da Frente 1.
+situacao_entrega,texto,desvio_prazo_dias,"Entrega antecipada, no prazo, atrasada ou sem data",classificada pelo prazo
+valor_produtos,decimal,"id_pedido, id_item_pedido, preco",Soma do preço dos produtos do pedido,"Soma por pedido, após deduplicar id_pedido + id_item_pedido."
+valor_frete,decimal,"id_pedido, id_item_pedido, valor_frete (origem da Frente 1)",Soma do frete cobrado pelos itens,"Soma por pedido, após deduplicar id_pedido + id_item_pedido."
+valor_total_pedido,decimal,"valor_produtos, valor_frete",Valor de produtos e frete,soma
+proporcao_frete,decimal,"valor_frete, valor_produtos",Relação entre frete e preço dos produtos,divisão
+qtd_itens,inteiro,"id_pedido, id_item_pedido",Quantidade de itens no pedido,Contagem de itens diferentes por pedido.
+tempo_entrega_dias,decimal,"marca_temporal_compra_pedido, data_entrega_pedido_cliente",Dias entre compra e entrega,diferença de datas
+tempo_ate_transportadora_dias,decimal,"marca_temporal_compra_pedido, data_entrega_pedido_transporadora",Dias até a transportadora receber,Diferença de datas; passagem à transportadora incoerente é desconsiderada.
+tempo_transporte_dias,decimal,"data_entrega_pedido_transporadora, data_entrega_pedido_cliente",Dias entre transportadora e cliente,Diferença de datas; passagem à transportadora incoerente é desconsiderada.
+desvio_prazo_dias,decimal,"data_entrega_pedido_cliente, data_estimada_entrega_pedido",Dias de diferença para a data prevista; negativos indicam antecipação,Diferença entre datas sem hora; nulo se falta entrega.
+dias_atraso,decimal,desvio_prazo_dias,Dias de atraso; zero quando entregue no prazo ou antes,valores negativos limitados a zero
+atrasou_entrega,inteiro ou nulo,desvio_prazo_dias,"1 para entrega atrasada, 0 para não atrasada, vazio sem data",indicador binário
+tem_comentario,inteiro,mensagem_comentario_avaliacao,1 se o cliente escreveu comentário,1 se contém texto; 'Vazio' e vazio contam como ausência.
+tamanho_comentario,inteiro,mensagem_comentario_avaliacao,Número de caracteres do comentário,contagem de caracteres
+marca_temporal_compra_pedido,data e hora,Dataframe_Unido.csv: marca_temporal_compra_pedido,Data e horário da compra,convertida para data
+data_entrega_pedido_cliente,data e hora,Dataframe_Unido.csv: data_entrega_pedido_cliente,Data e horário da entrega,convertida para data
+data_estimada_entrega_pedido,data e hora,Dataframe_Unido.csv: data_estimada_entrega_pedido,Data prevista para entrega,convertida para data
+valor_produtos_minmax,decimal,valor_produtos,valor_produtos na escala minmax,normalização minmax
+valor_produtos_zscore,decimal,valor_produtos,valor_produtos na escala zscore,normalização zscore
+valor_frete_minmax,decimal,valor_frete,valor_frete na escala minmax,normalização minmax
+valor_frete_zscore,decimal,valor_frete,valor_frete na escala zscore,normalização zscore
+tempo_entrega_dias_minmax,decimal,tempo_entrega_dias,tempo_entrega_dias na escala minmax,normalização minmax
+tempo_entrega_dias_zscore,decimal,tempo_entrega_dias,tempo_entrega_dias na escala zscore,normalização zscore
+qtd_vendedores,inteiro,"id_pedido, id_vendedor",Quantidade de vendedores envolvidos no pedido,Contagem de vendedores distintos por pedido.
+entrega_antes_do_prazo,inteiro,situacao_entrega,"1 se a entrega está em antes_do_prazo, 0 caso contrário",codificação one-hot
+entrega_atrasada,inteiro,situacao_entrega,"1 se a entrega está em atrasada, 0 caso contrário",codificação one-hot
+entrega_no_prazo,inteiro,situacao_entrega,"1 se a entrega está em no_prazo, 0 caso contrário",codificação one-hot
+entrega_sem_data,inteiro,situacao_entrega,"1 se a entrega está em sem_data, 0 caso contrário",codificação one-hot
