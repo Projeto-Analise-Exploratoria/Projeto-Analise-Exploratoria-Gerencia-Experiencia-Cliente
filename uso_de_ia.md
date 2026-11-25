@@ -2,7 +2,7 @@
 
 | Nº | Data | Integrante | Ferramenta | Etapa e o que foi pedido | O que foi aproveitado | O que a equipe alterou ou verificou | Link da conversa |
 |---|---|---|---|---|---|---|---|
-| 1 | 25/11/2026 | Alisson | ChatGPT | Revisão do código de limpa com o Dataframe Unido | As mudanças sugeridas pelo ChatGPT | uso inapropriado de `pd.concat` e preenchimento de nulos incorretos ou desnescessários | https://chatgpt.com/share/6b074825-ffa4-83e9-926e-286bef2a74ae |
+| 1 | 25/11/2026 | Alisson | ChatGPT | Revisão do código de limpa com o Dataframe Unido | As mudanças sugeridas pelo ChatGPT | uso inapropriado de `pd.concat` e preenchimento de nulos incorretos ou desnecessários | https://chatgpt.com/share/6b074825-ffa4-83e9-926e-286bef2a74ae |
 ## Registro de uso de IA — Frente 2
 
 | Nº | Data | Integrante | Ferramenta | Etapa e o que foi pedido | O que foi aproveitado | O que a equipe alterou ou verificou | Link da conversa |
